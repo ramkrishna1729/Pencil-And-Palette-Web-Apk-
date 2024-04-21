@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencil-and-Palette - Category</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Pencil-and-Palette</h1>
+    </header>
+    <nav>
+        <form action="#" method="get">
+            <input type="text" name="search" placeholder="Search paintings">
+            <input type="submit" value="Search">
+        </form>
+    </nav>
+    <section>
+        <h2>Category: <span id="category-name"></span></h2>
+        <p>This is the category page for <span id="category-name"></span> paintings. You can browse through various paintings in this category.</p>
+        <h3>Paintings</h3>
+        <ul id="paintings-list"></ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 Pencil-and-Palette. All rights reserved.</p>
+    </footer>
+    <script>
+        // Get the category name from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        document.getElementById('category-name').innerText = category;
+
+        // Fetch paintings for the category
+        fetch('paintings.json')
+          .then(response => response.json())
+          .then(data => {
+                const paintingsList = document.getElementById('paintings-list');
+                data.forEach(painting => {
+                    if (painting.category === category) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="painting.html?id=${painting.id}">${painting.title}</a>`;
+                        paintingsList.appendChild(li);
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
