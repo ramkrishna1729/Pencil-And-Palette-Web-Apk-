@@ -1,5 +1,5 @@
 # Pencil-And-Palette-Web-Apk
-lllllll
+
 Pencil-And-Palette-Web-Apk is an e-commerce website designed for selling paintings and sketches. It is crafted with a modern stack of technologies including HTML5, CSS3, JavaScript, React, Django, and TypeScript. The project is powered by a robust Relational Database Management System (RDBMS) to provide seamless user experiences and secure transactions.
 
 ## Features
