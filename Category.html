@@ -11,9 +11,15 @@
         <h1>Welcome to Pencil-and-Palette</h1>
     </header>
     <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
         <form action="#" method="get">
-            <input type="text" name="search" placeholder="Search paintings">
-            <input type="submit" value="Search">
+            <input type="text" name="search" placeholder="Search paintings" aria-label="Search paintings">
+            <button type="submit">Search</button>
         </form>
     </nav>
     <section>
@@ -21,6 +27,7 @@
         <p>This is the category page for <span id="category-name"></span> paintings. You can browse through various paintings in this category.</p>
         <h3>Paintings</h3>
         <ul id="paintings-list"></ul>
+        <p id="no-paintings-message" style="display: none;">No paintings found in this category.</p>
     </section>
     <footer>
         <p>&copy; 2024 Pencil-and-Palette. All rights reserved.</p>
@@ -36,13 +43,18 @@
           .then(response => response.json())
           .then(data => {
                 const paintingsList = document.getElementById('paintings-list');
-                data.forEach(painting => {
-                    if (painting.category === category) {
+                const noPaintingsMessage = document.getElementById('no-paintings-message');
+                const filteredPaintings = data.filter(painting => painting.category === category);
+                
+                if (filteredPaintings.length === 0) {
+                    noPaintingsMessage.style.display = 'block';
+                } else {
+                    filteredPaintings.forEach(painting => {
                         const li = document.createElement('li');
                         li.innerHTML = `<a href="painting.html?id=${painting.id}">${painting.title}</a>`;
                         paintingsList.appendChild(li);
-                    }
-                });
+                    });
+                }
             });
     </script>
 </body>
