@@ -29,6 +29,11 @@
         <ul id="paintings-list"></ul>
         <p id="no-paintings-message" style="display: none;">No paintings found in this category.</p>
     </section>
+    <section>
+        <h3>Featured Paintings</h3>
+        <ul id="featured-paintings-list"></ul>
+        <p id="no-featured-paintings-message" style="display: none;">No featured paintings available.</p>
+    </section>
     <footer>
         <p>&copy; 2024 Pencil-and-Palette. All rights reserved.</p>
     </footer>
@@ -53,6 +58,24 @@
                         const li = document.createElement('li');
                         li.innerHTML = `<a href="painting.html?id=${painting.id}">${painting.title}</a>`;
                         paintingsList.appendChild(li);
+                    });
+                }
+            });
+
+        // Fetch featured paintings
+        fetch('featured-paintings.json')
+          .then(response => response.json())
+          .then(data => {
+                const featuredPaintingsList = document.getElementById('featured-paintings-list');
+                const noFeaturedPaintingsMessage = document.getElementById('no-featured-paintings-message');
+                
+                if (data.length === 0) {
+                    noFeaturedPaintingsMessage.style.display = 'block';
+                } else {
+                    data.forEach(painting => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="painting.html?id=${painting.id}">${painting.title}</a>`;
+                        featuredPaintingsList.appendChild(li);
                     });
                 }
             });
