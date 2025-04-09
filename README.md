@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+ Pencil and Palette - Artist E-commerce Platform
+Pencil and Palette is a full-featured MERN (MongoDB, Express.js, React.js, Node.js) stack application that provides a platform for artists to showcase their sample artworks and for customers to explore, interact, and request personalized artworks from those artists.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🌟 Features
+For Artists
+Register and create a personal profile
 
-## Available Scripts
+Upload sample artworks with descriptions and tags
 
-In the project directory, you can run:
+Manage uploaded samples (edit/delete)
 
-### `npm start`
+For Customers
+Browse artist profiles and view their sample works
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Select an artist and request custom paintings or sketches
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Contact the artist through provided communication channels
 
-### `npm test`
+Secure checkout system for ordering personalized artwork
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+General
+Dynamic frontend using React.js
 
-### `npm run build`
+RESTful API built with Node.js and Express.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+MongoDB for database and artist/artwork storage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Image uploading functionality with cloud storage integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Responsive design with a clean, user-friendly interface
 
-### `npm run eject`
+🛠 Tech Stack
+Frontend: React.js, React Router, Axios
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Backend: Node.js, Express.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Database: MongoDB, Mongoose
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Authentication: JWT (JSON Web Token)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Image Uploading: Multer + Cloudinary / Firebase Storage
 
-## Learn More
+Styling: Tailwind CSS / Bootstrap (optional)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Deployment: Vercel (Frontend) + Render / Railway / Heroku (Backend)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🚀 Getting Started
+Prerequisites
+Node.js and npm installed
 
-### Code Splitting
+MongoDB account (or local MongoDB)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Cloudinary/Firebase (for image hosting)
 
-### Analyzing the Bundle Size
+Installation
+1. Clone the repository
+bash
+Copy
+Edit
+git clone https://github.com/your-username/pencil-and-palette.git
+cd pencil-and-palette
+2. Setup Backend
+bash
+Copy
+Edit
+cd backend
+npm install
+Create a .env file and add:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ini
+Copy
+Edit
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+Start the backend server:
 
-### Making a Progressive Web App
+bash
+Copy
+Edit
+npm start
+3. Setup Frontend
+bash
+Copy
+Edit
+cd ../frontend
+npm install
+npm start
+📁 Project Structure
+bash
+Copy
+Edit
+/frontend         # React app
+/backend          # Express API and DB models
+/uploads          # Temporary image uploads (if not using cloud storage)
+README.md
+📦 API Endpoints
+POST /api/auth/register – Register user
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+POST /api/auth/login – Login user
 
-### Advanced Configuration
+GET /api/artists – Get all artists
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+GET /api/artist/:id – Get artist profile
 
-### Deployment
+POST /api/artist/:id/artwork – Upload artwork
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+POST /api/orders – Place an order
 
-### `npm run build` fails to minify
+✨ Future Enhancements
+Admin panel for platform moderation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Reviews and ratings for artist profiles
+
+Real-time chat between artist and customer
+
+Stripe/PayPal integration for secure payments
+
+Email notifications for order status updates
+
+📸 Sample Screenshots
+(Add screenshots here showing homepage, artist profile, artwork gallery, and ordering page)
+
+🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests to improve the platform.
+
+📄 License
+This project is licensed under the MIT License.
